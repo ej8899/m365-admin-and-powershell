@@ -1,0 +1,25 @@
+1. Deprecation of Get-CsDialPlan Cmdlet (Jan’25) - Microsoft is phasing out the “Get-CsDialPlan” cmdlet from the Teams PowerShell module. Instead, use the “Get-CsEffectiveTenantDialPlan” cmdlet to retrieve the effective tenant dial plan applied to users. 
+
+2. Retirement of RBAC Application Impersonation Role (Feb’25) - The RBAC application impersonation role is set for retirement by February 2025. Consider using Role-Based Access Control (RBAC) for apps to access mailboxes instead. 
+
+3. End of Support for Azure AD and MSOnline PowerShell Modules (Mar 30) - Say goodbye to Azure AD and MSOnline PowerShell modules. Transition your PowerShell scripts to Microsoft Graph PowerShell for continued support. 
+
+4. Retirement of Domain Isolated Web Part in SharePoint Framework (Apr 2) -The domain-isolated web part in the SharePoint Framework will be retired. Migrate your domain-isolated web parts to regular web parts. 
+
+5. End of Availability for Classic Teams Desktop App (July 1) - The classic Teams desktop app will no longer be available for all users. Users will need to switch to the new Teams app. 
+
+6. Removal of Basic Authentication for Client Submission (Sep’25) - Basic Authentication for SMTP AUTH will no longer be available after September 2025. Move to OAuth for Client Submission (SMTP AUTH). 
+
+7. Discontinuation of Legacy MFA and SSPR Policies(Sep 30) - Managing authentication methods through legacy MFA and SSPR policies will no longer be supported. Migrate to the Authentication Methods policy in Entra. 
+
+8. End of Support for Office 2016 and Office 2019 (Oct 14)- Support for Office 2016 and Office 2019 will end on October 14, 2025. Upgrade to Microsoft 365 Apps from older Office versions. 
+
+9. Retirement of OneNote for Windows 10 App (Oct 14) - Microsoft will retire the OneNote for Windows 10 app. Switch users to Microsoft OneNote for Windows app instead. 
+
+10. Retirement of SendEmail API in SharePoint (Oct 31) - The SendEmail API in SharePoint will be retired. Use the user: SendMail API via Microsoft Graph to send emails. 
+
+11. End of Microsoft 365 Apps Support on Windows Server 2016 and 2019 (Oct’25) - Microsoft 365 Apps will no longer be supported on Windows Server 2016 and 2019 after October 2025. Move to Windows 365 or Azure Virtual Desktop to meet your needs. 
+
+12. Retirement of Viva Goals (Dec 31) - Viva Goals will no longer be available after December 31, 2025. Use data export options like API, Excel, or PowerPoint to move your data to another solution. 
+
+13. Retirement of Office 365 Connectors Service in Teams (2025 End) - The Office 365 Connectors service in Teams will be retired by the end of 2025. Consider moving Workflows app in Teams. 
