@@ -1,5 +1,6 @@
 #
 # Scan the logs to see who is installing miscellaneous Teams Apps
+# EJMedia.ca - 2025
 #
 
 
