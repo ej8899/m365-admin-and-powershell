@@ -1,6 +1,5 @@
 #
 # Scan the logs to see who is installing miscellaneous Teams Apps
-# EJMedia.ca - 2025
 #
 
 
@@ -11,7 +10,7 @@ $DaysToScan = -180
 $ResultSize = 10
 
 # Admin account for Exchange Online connection
-$AdminUser = ""
+$AdminUser = "admin-account@yourcompany.com"
 
 
 #
@@ -30,9 +29,34 @@ Connect-ExchangeOnline -UserPrincipalName $AdminUser
 # Retrieve logs for "Add app"
 $logs = Search-UnifiedAuditLog -Operations "Add app" -StartDate (Get-Date).AddDays($DaysToScan) -EndDate (Get-Date) -ResultSize $ResultSize
 
-# Display full details of the first log entry (for debugging)
+# Check if log data exists before processing
 if ($logs.Count -gt 0) {
-    $logs[0].AuditData | ConvertFrom-Json | Format-List *
+    Write-Host "Found $($logs.Count) installation log(s) in the past $(-$DaysToScan) days.`n"
+
+    # Loop through each log entry and display full details
+    foreach ($log in $logs) {
+        Write-Host "-------------------------------------"
+        Write-Host "Timestamp: $($log.CreationDate)"
+        Write-Host "User: $($log.UserIds)"
+
+        # Parse AuditData JSON
+        $auditData = $log.AuditData | ConvertFrom-Json
+
+        # Extract key fields
+        $objectId = if ($auditData.PSObject.Properties["ObjectId"]) { $auditData.ObjectId } else { "N/A" }
+        $appId = if ($auditData.PSObject.Properties["AppId"]) { $auditData.AppId } else { "N/A" }
+        $appName = if ($auditData.PSObject.Properties["AppDisplayName"]) { $auditData.AppDisplayName } else { "Unknown" }
+
+        Write-Host "Object ID (Possible App ID): $objectId"
+        Write-Host "App ID: $appId"
+        Write-Host "App Name: $appName"
+
+        # Show full raw log data (json)
+        Write-Host "`nFULL LOG DATA:"
+        $auditData | ConvertTo-Json -Depth 3
+
+        Write-Host "-------------------------------------`n"
+    }
 } else {
     Write-Host "No app installation logs found in the past $(-$DaysToScan) days."
 }
