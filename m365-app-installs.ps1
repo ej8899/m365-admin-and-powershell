@@ -1,5 +1,5 @@
 #
-# Scan the logs to see who is installing miscellaneous Teams Apps
+# Scan the logs to see who is installing miscellaneous  Apps
 #
 
 
