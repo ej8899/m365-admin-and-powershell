@@ -18,12 +18,26 @@ Connect-ExchangeOnline -UserPrincipalName username@companydomain.com
 # Get all Unified Groups
 $AllGroups = Get-UnifiedGroup
 
+# Initialize summary report
+$SummaryReport = @()
+
+
 # Loop through each group and ask the user if they want to change the state
 ForEach ($Group in $AllGroups) {
     $GroupName = $Group.DisplayName
     $WelcomeMessageState = $Group.WelcomeMessageEnabled
-    Write-Host "`nGroup Name: $GroupName"
-    Write-Host "Welcome Email Enabled: $WelcomeMessageState"
+    $Color = if ($WelcomeMessageState) { "Green" } else { "DarkYellow" }
+    
+    Write-Host "`nGroup Name: " -NoNewline
+    Write-Host "$GroupName" -ForegroundColor Cyan
+    Write-Host "Welcome Email Enabled: " -NoNewline
+    Write-Host "$WelcomeMessageState" -ForegroundColor $Color
+
+    # Add to summary report
+    $SummaryReport += [PSCustomObject]@{
+        GroupName = $GroupName
+        WelcomeMessageState = $WelcomeMessageState
+    }
 
     # Prompt user to decide on action
     $Response = Read-Host "Do you want to toggle the Welcome Email state for this group? (Y/N)"
@@ -32,11 +46,47 @@ ForEach ($Group in $AllGroups) {
         $NewState = -not $WelcomeMessageState
         Set-UnifiedGroup -Identity $Group.Id -UnifiedGroupWelcomeMessageEnabled:$NewState
 
-        Write-Host "Welcome Email state changed to $NewState for the group: $GroupName"
+        Write-Host "Welcome Email state changed to $NewState for the group: $GroupName" -ForegroundColor Green
     } else {
-        Write-Host "No changes made for the group: $GroupName"
+        Write-Host "No changes made for the group: $GroupName" -ForegroundColor Yellow
     }
 }
+
+
+# Reset the foreground color to default after output
+$Host.UI.RawUI.ForegroundColor = [System.ConsoleColor]::White
+
+$ReportDate = Get-Date -Format "yyyy-MM-dd"
+Write-Host "Summary Report Date: $ReportDate" -ForegroundColor Green
+
+#
+# Display summary report
+#
+
+# Calculate dynamic column widths
+$maxGroupLength = ($SummaryReport | ForEach-Object { $_.GroupName.Length } | Measure-Object -Maximum).Maximum
+$groupColWidth = [Math]::Max($maxGroupLength, 15) + 2
+$stateColWidth = 25
+
+# Header
+$headerGroup = "Group Name".PadRight($groupColWidth)
+$headerWelcome = "Welcome Email Enabled".PadRight($stateColWidth)
+$divider = "-" * ($groupColWidth + $stateColWidth)
+
+Write-Host "$headerGroup$headerWelcome" -ForegroundColor Cyan
+Write-Host "$divider" -ForegroundColor Cyan
+
+# Rows
+foreach ($Item in $SummaryReport) {
+    $group = $Item.GroupName.PadRight($groupColWidth)
+    $stateText = if ($Item.WelcomeMessageState) { "Enabled" } else { "Disabled" }
+    $color = if ($Item.WelcomeMessageState) { "Green" } else { "DarkYellow" }
+
+    Write-Host "$group" -NoNewline
+    Write-Host $stateText.PadRight($stateColWidth) -ForegroundColor $color
+}
+
+
 
 #
 # Additional References
