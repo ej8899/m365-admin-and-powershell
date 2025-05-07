@@ -1,24 +1,47 @@
-# M365 Admin and PowerShell Notes 📚🚀
+# 📚 M365 Admin & PowerShell Notes + SharePoint Tools
 
-Welcome to the **M365 Admin and PowerShell Notes Repository**! This repo is your go-to resource for insightful notes, tips, and scripts tailored for mastering Microsoft 365 administration using the power of PowerShell.
-
-## 🌟 What's Inside?
-
-- 🛠️ **Practical PowerShell Scripts**: Boost productivity and streamline tasks.
-- 📘 **Comprehensive Admin Notes**: Packed with details for every M365 admin.
-- 💡 **Tips & Best Practices**: Enhance your workflows with proven strategies.
-
-## 🔗 Why Choose Me as Your M365 Virtual Admin?
-
-Looking for an expert to manage your Microsoft 365 environment remotely? With years of experience and a passion for technology, I can be your **dedicated virtual M365 administrator**! Whether you need assistance with configuration, optimization, troubleshooting, or automation, I'm here to help.
-
-📌 *Learn more about my services at [EJMedia.ca](https://EJMedia.ca)*.
+Welcome to the **M365 Admin & PowerShell Notes Repository** — your one-stop shop for real-world Microsoft 365 administration insights, automation scripts, and custom-built SharePoint Framework (SPFx) tools. Whether you're a sysadmin, developer, or IT pro, this repo is built to save you time and level up your M365 game.
 
 ---
 
-💬 **Feedback & Contributions Welcome!**
-Feel free to open issues or submit pull requests if you'd like to contribute or provide feedback. Collaboration is the key to growth!
+## 🚀 What's Inside?
+
+- 🛠️ **Practical PowerShell Scripts**  
+  Time-saving scripts for real admin tasks — user management, licensing, reporting, and more.
+
+- 📘 **Detailed Admin Notes**  
+  Hard-earned M365 knowledge, shortcuts, gotchas, and configuration guidance, all in one place.
+
+- 💡 **Tips & Best Practices**  
+  From security tightening to automation best practices — cut through the clutter.
+
+- 🧩 **Custom SPFx Web Parts**  
+  Ready-to-deploy SharePoint Framework (SPFx) web parts, including internal tools like:
+  - 🔐 **Password Breach Checker** – Client-side tool to verify if passwords have appeared in known breaches (privacy-safe!).
+  - More coming soon...
 
 ---
 
-Thanks for stopping by, and I hope this repository adds value to your M365 journey. Let's make admin work seamless and efficient!
+## 🤝 Need an M365 Pro on Your Side?
+
+Looking for someone to help you manage your Microsoft 365 environment the *right* way?
+
+I offer:
+- ✔️ Remote M365 administration
+- ✔️ PowerShell automation
+- ✔️ SharePoint customizations (SPFx / Power Platform)
+- ✔️ Security hardening & monitoring
+
+📌 Learn more or get in touch at **[EJMedia.ca](https://EJMedia.ca)**
+
+---
+
+## 💬 Feedback & Contributions
+
+Got improvements, ideas, or requests?  
+Open an issue or submit a PR — collaboration is welcome!
+
+---
+
+Thanks for stopping by.  
+Let’s make Microsoft 365 admin work smarter, not harder. 💻⚡
