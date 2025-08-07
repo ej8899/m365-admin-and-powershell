@@ -23,8 +23,8 @@ Use this guide to cleanly prepare an Intune-managed Windows laptop for a **new u
 
 ## ℹ️ Notes
 
-- This is a **secure factory reset** — not a format or reimage.
-- No USB or imaging required — device uses built-in reset.
+- This is a **secure factory reset** — it is **DESTRUCTIVE**
+- No USB or imaging required — device uses built-in reset IF a valid recovery partition.
 - You'll get a **clean slate** with no trace of the previous user.
 
 ---
@@ -37,7 +37,7 @@ Use this guide to cleanly prepare an Intune-managed Windows laptop for a **new u
 | **Autopilot Reset** | Resets and reapplies Autopilot profile. Removes user data but keeps device enrolled.        | ❌ No         | ❌ No                 |
 | **Fresh Start**     | Removes bloatware and reinstalls Windows while keeping user data and MDM enrollment.        | ✅ Yes        | ❌ No                 |
 
-> 🔐 **Recommended for new user handoff: Use Wipe**, then delete the device from both **Entra ID** and **Intune** for a completely fresh start.
+> 🔐 **Recommended for new user handoff: Use Autopilot Reset** - might need to change in Intune for owner. 
 
 ---
 
